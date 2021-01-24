@@ -173,13 +173,16 @@ ol {
 }
 
 .square {
-	height: 50px;
-	width: 50px;
+	height: 30px;
+	width: 30px;
 	background-color: #607D8B;
 	border-radius: 30%;
-	margin-right: 8px;
+	margin-right: 3px;
 	display:inline-block;
   }
+.div-tr{
+	margin-bottom: -3px;
+}
 .square.first-col{
 	margin-left: 12%;
 }
@@ -223,4 +226,10 @@ color: #00e5ff;
 background:transparent;
 border-color: #d6e9c6;
 display: none;
+}
+.table-container{
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+	justify-content: center;
 }

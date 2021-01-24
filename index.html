@@ -18,11 +18,14 @@
 	
 	<!--stars-->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+
 	<!--fade out image-->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- Bootstrap CSS / Color Scheme -->
+<!--    <link rel="stylesheet" href="./css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/cyan.css" id="theme-color">
 </head>
 <body>
@@ -41,12 +44,23 @@
 				
 				
 				<h1 class="heading-black text-capitalize" >Welcome to <span style="color:#00e5ff">M</span>aze <span style="color:#00e5ff">G</span>ame</h1>
-                
-				<input type="text" id="pname" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" style="background:transparent; color: white" placeholder="Enter your name here">
-				<br><br>
-                <button class="btn btn-primary d-inline-flex flex-row align-items-center" id="send_name">
+
+                <br><br>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 250px !important;">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+
+                <br><br>
+                <button class="btn btn-primary  text-center" id="send_name" style="width: 250px !important;">
                     start the game
-                    <em class="ml-2" data-feather="arrow-right"></em>
+<!--                    <em class="ml-2" data-feather="arrow-right"></em>-->
                 </button>
 				
 				
@@ -56,7 +70,7 @@
 </section>
 </div>
 <!--faq section-->
-<section class="py-7" id="faq" style="margin-top:300px;padding-top:50px !important;">
+<div class="py-7" id="faq" style="margin-top:300px;padding-top:50px !important;">
 <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto text-center">
@@ -68,12 +82,11 @@
 
 <br><br>
 
-<div id="my_square"></div>
+<!--<div id="my_square"></div>-->
+    <div class="table-container">
+        <div id="my_square"></div>
+    </div>
 <br><br>
-<div class="scores" id="scores">
-	<p>scores:</p>
-	<p id="cur_scores"></p>
-</div>
 <div id="ans_block" class="answer" style="display: none;">
 	<input id="ans_input" type="text" class="form-control answer-input" aria-label="Small" 
 	aria-describedby="inputGroup-sizing-sm" placeholder="Enter Answer">
@@ -83,10 +96,8 @@
 <br><br>
 <div class="alert-box success" id="myboxx"></div>
 
+</div>
 
-
-<!-- <img class="w3-animate-fading" src="img_rr_01.jpg" style="width:100%"> -->
-</section>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <!--scroll to top-->
@@ -96,114 +107,67 @@
 
 
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script src="js/scripts.js"></script>
+<script src="js/index.js"></script>
 <script>
-	var exampleSocket;
-	var q = []
-	$("#send_name").click(function() {
+    let random_bit_array;
+    let q = [];
+    $("#send_name").click(function() {
 		$('html,body').animate({
-			scrollTop: $("#faq").offset().top},
+			scrollTop: $("#faq").offset().top+60},
 			'slow'
 		);
-		exampleSocket = new WebSocket("ws://localhost:5000");
-		//alert($("#pname").val())
-		exampleSocket.onopen = function (event) {
-			exampleSocket.send($("#pname").val()); 
-		};
-		$("#ans_block").show()
-		$("#hero-image").fadeIn(3000);
-		exampleSocket.onmessage = function (event) {
-			//q.push(JSON.parse(event.data))
-			msg = JSON.parse(event.data);
-			console.log(JSON.parse(event.data));
-			if(typeof msg == 'object')
-			{
-				if("init" in msg)
-				{
-					console.log(msg.data);
-					do_colering(msg.data);
-				}
-				if("round" in msg)
-				{
-					//alert(msg.scores);
-					scores = JSON.stringify(msg.scores)
-					//scores = scores.replace(',', '\n');
-					$("#cur_scores").text(scores);
-				}
-				if("answer" in msg)
-				{
-					$("#myboxx").text(`player: ${msg.player_name} ---> ans: ${msg.answer}`);
-					//$("#myboxx").text("fdsafdafasdf");
-					$( "div.success" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
-					
-					//alert(`player: ${msg.player_name}\n` + msg.answer)
-				}
-				if("winner" in msg)
-				{
-					$("#myboxx").text(`scores: ${JSON.stringify(msg.scores)} ***** winner: ${JSON.stringify(msg.winner)}`);
-					//$("#myboxx").text("fdsafdafasdf");
-					$( "div.success" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 5000 );
-					
-					//alert(`player: ${msg.player_name}\n` + msg.answer)
-				}
-			}
-				
-					
-		}
+		random_bit_array=create_random_bit_array();
+        do_coloring(random_bit_array);
 	});
-	$("#send_ans_btn").click(function(){
-		//alert($("#ans_input").val());
-		exampleSocket.send($("#ans_input").val());
-	});
-	
-	/*
-	$("#hero-image").scorll(function(){
+
+	let ROW_NUMBER = 20;
+	let COL_NUMBER = 20;
+	let big_square = document.getElementById("my_square");
+	let table_td,table_tr;
+	for(let i=ROW_NUMBER-1;i>=0;i--){
+		table_tr = document.createElement("div");
+		table_tr.className="div-tr";
+		big_square.appendChild(table_tr);
+		table_tr.id = `tr${i}}`;
 		
-	});
-	*/
-	var ROW_NUMBER = 4
-	var COL_NUMBER = 20
-	var big_square = document.getElementById("my_square")
-	var node;
-	for(var i=0;i<ROW_NUMBER;i++){
-		node = document.createElement("div");
-		big_square.appendChild(node);
-		node.className = "square first-col";
-		node.id = `sq${i}${0}`;
-		
-		for(var j=1;j<COL_NUMBER;j++){
-			node = document.createElement("div");
-			node.className = "square";
-			big_square.appendChild(node);
-			node.id = `sq${i}${j}`;
+		for(let j=0;j<COL_NUMBER;j++){
+            table_td = document.createElement("div");
+			table_td.className = "square";
+			table_tr.appendChild(table_td);
+			table_td.id = `x${j}y${i}`;
 		}
 	}
-	
+	let RAND_1=20;
+	let RAND_2=20;
 	function create_random_bit_array(){
-		var arr = [];
-		for(var i=0;i<ROW_NUMBER;i++)
+		let arr = [];
+		let fill_cell_number=Math.floor((Math.random() * 1000)) % RAND_1+RAND_2
+        ;
+        console.log(fill_cell_number);
+        for(let i=0;i<ROW_NUMBER;i++)
 		{
 			arr[i] = [];
-			for(var j=0;j<COL_NUMBER;j++)
+			for(let j=0;j<COL_NUMBER;j++)
 				arr[i][j] = Math.floor((Math.random() * 1000)) % 2;
 		}
 		return arr;
 	}
 	
-	var square_colors = ["grey","blue"] 		//first is grey and second is primary
+	let square_colors = ["grey","blue"];		//first is grey and second is primary
 	
-	function do_colering(bit_color_array){
-		//var arr = create_random_bit_array();
-		//console.log(arr);
-		for(var i=0;i<ROW_NUMBER;i++){
-			for(var j=0;j<COL_NUMBER;j++){
-				$(`#sq${i}${j}`).removeClass("blue");
+	function do_coloring(bit_color_array){
+        for(let i=ROW_NUMBER-1;i>=0;i--){
+            for(let j=0;j<COL_NUMBER;j++){
+				$(`#x${j}${i}`).removeClass("blue");
 				$(`#sq${i}${j}`).removeClass("grey");
 				$(`#sq${i}${j}`).addClass(square_colors[bit_color_array[i][j]]);
 				//console.log("yes");
