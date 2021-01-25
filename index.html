@@ -1,185 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>Maze Game</title>
-    <meta name="description"
-          content="Knight is a beautiful Bootstrap 4 template for product landing pages."/>
+    <meta
+      name="description"
+      content="Knight is a beautiful Bootstrap 4 template for product landing pages."
+    />
 
     <!--Inter UI font-->
-    <link href="https://rsms.me/inter/inter-ui.css" rel="stylesheet">
+    <link href="https://rsms.me/inter/inter-ui.css" rel="stylesheet" />
 
     <!--vendors styles-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-	
-	<!--stars-->
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
 
-	<!--fade out image-->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--stars-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!--fade out image-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
     <!-- Bootstrap CSS / Color Scheme -->
-<!--    <link rel="stylesheet" href="./css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/cyan.css" id="theme-color">
-</head>
-<body>
-
-<!--stars-->
-<div id="background"></div>
-<div id="midground"></div>
-<div id="foreground"></div>
-<div id="page-wrap">
-
-<!--hero header-->
-<section class="py-7 py-md-0" id="home">
-    <div class="container">
-        <div class="row" style="padding-top:100px">
+    <!--    <link rel="stylesheet" href="./css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/cyan.css" id="theme-color" />
+  </head>
+  <body>
+    <!--stars-->
+    <div id="background"></div>
+    <div id="midground"></div>
+    <div id="foreground"></div>
+    <div id="page-wrap">
+      <!--hero header-->
+      <section class="py-7 py-md-0" id="home">
+        <div class="container">
+          <div class="row" style="padding-top: 100px">
             <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center">
-				
-				
-				<h1 class="heading-black text-capitalize" >Welcome to <span style="color:#00e5ff">M</span>aze <span style="color:#00e5ff">G</span>ame</h1>
+              <h1 class="heading-black text-capitalize">
+                Welcome to <span style="color: #00e5ff">M</span>aze
+                <span style="color: #00e5ff">G</span>ame
+              </h1>
 
-                <br><br>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 250px !important;">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
-
-                <br><br>
-                <button class="btn btn-primary  text-center" id="send_name" style="width: 250px !important;">
-                    start the game
-<!--                    <em class="ml-2" data-feather="arrow-right"></em>-->
+              <br /><br />
+              <div class="dropdown">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  style="width: 250px !important"
+                >
+                  Select Algorithm
                 </button>
-				
-				
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Breadth First</a>
+                  <a class="dropdown-item" href="#">Iterative Deepening</a>
+                  <a class="dropdown-item" href="#">A Star</a>
+                </div>
+              </div>
+
+              <br /><br />
+              <button
+                class="btn btn-primary text-center"
+                id="send_name"
+                style="width: 250px !important"
+              >
+                start the game
+                <!--                    <em class="ml-2" data-feather="arrow-right"></em>-->
+              </button>
             </div>
+          </div>
         </div>
+      </section>
     </div>
-</section>
-</div>
-<!--faq section-->
-<div class="py-7" id="faq" style="margin-top:300px;padding-top:50px !important;">
-<div class="container">
-        <div class="row">
-            <div class="col-md-6 mx-auto text-center">
-                <h2 style="padding-top:0;display:none;" id="hero-image">How Many Squares Do You See In The Following Picture?</h2>
-            </div>
-        </div>
-		
-</div>
+    <!--faq section-->
+    <div
+      class="py-7"
+      id="faq"
+      style="margin-top: 300px; padding-top: 50px !important"
+    >
+      <br /><br />
 
-<br><br>
-
-<!--<div id="my_square"></div>-->
-    <div class="table-container">
+      <!--<div id="my_square"></div>-->
+      <div class="table-container">
         <div id="my_square"></div>
+      </div>
+      <br /><br />
+      <div id="ans_block" class="answer">
+        <div>Available: <span id="#available"></span></div>
+        <div>Search Cost: <span id="#search_cost"></span></div>
+        <div>Node Number: <span id="#node_number"></span></div>
+      </div>
     </div>
-<br><br>
-<div id="ans_block" class="answer" style="display: none;">
-	<input id="ans_input" type="text" class="form-control answer-input" aria-label="Small" 
-	aria-describedby="inputGroup-sizing-sm" placeholder="Enter Answer">
-	<br><br>
-	<button id="send_ans_btn" class="btn btn-primary d-inline-flex flex-row align-items-center send-answer-btn">SEND</button>
-</div>
-<br><br>
-<div class="alert-box success" id="myboxx"></div>
 
-</div>
+    <!--scroll to top-->
+    <div class="scroll-top">
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-<!--scroll to top-->
-<div class="scroll-top">
-    <i class="fa fa-angle-up" aria-hidden="true"></i>
-</div>
-
-
-
-<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/index.js"></script>
-<script>
-    let random_bit_array;
-    let q = [];
-    $("#send_name").click(function() {
-		$('html,body').animate({
-			scrollTop: $("#faq").offset().top+60},
-			'slow'
-		);
-		random_bit_array=create_random_bit_array();
-        do_coloring(random_bit_array);
-	});
-
-	let ROW_NUMBER = 20;
-	let COL_NUMBER = 20;
-	let big_square = document.getElementById("my_square");
-	let table_td,table_tr;
-	for(let i=ROW_NUMBER-1;i>=0;i--){
-		table_tr = document.createElement("div");
-		table_tr.className="div-tr";
-		big_square.appendChild(table_tr);
-		table_tr.id = `tr${i}}`;
-		
-		for(let j=0;j<COL_NUMBER;j++){
-            table_td = document.createElement("div");
-			table_td.className = "square";
-			table_tr.appendChild(table_td);
-			table_td.id = `x${j}y${i}`;
-		}
-	}
-	let RAND_1=20;
-	let RAND_2=20;
-	function create_random_bit_array(){
-		let arr = [];
-		let fill_cell_number=Math.floor((Math.random() * 1000)) % RAND_1+RAND_2
-        ;
-        console.log(fill_cell_number);
-        for(let i=0;i<ROW_NUMBER;i++)
-		{
-			arr[i] = [];
-			for(let j=0;j<COL_NUMBER;j++)
-				arr[i][j] = Math.floor((Math.random() * 1000)) % 2;
-		}
-		return arr;
-	}
-	
-	let square_colors = ["grey","blue"];		//first is grey and second is primary
-	
-	function do_coloring(bit_color_array){
-        for(let i=ROW_NUMBER-1;i>=0;i--){
-            for(let j=0;j<COL_NUMBER;j++){
-				$(`#x${j}${i}`).removeClass("blue");
-				$(`#sq${i}${j}`).removeClass("grey");
-				$(`#sq${i}${j}`).addClass(square_colors[bit_color_array[i][j]]);
-				//console.log("yes");
-			}
-		}
-	}
-	
-	$().ready(function(){
-		
-	});
-	
-
-</script>
-</body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/Algorithms/Breadth First‬‬.js"></script>
+    <script src="js/Algorithms/Iterative Deepening.js"></script>
+    <script src="js/Algorithms/A Star.js"></script>
+    <script src="js/index.js"></script>
+  </body>
 </html>
