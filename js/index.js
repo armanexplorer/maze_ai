@@ -1,5 +1,8 @@
+let RAND_1 = 20;
+let RAND_2 = 20;
 $().ready(function () {});
 let Current_Algorithm = "";
+let START_X, START_Y, END_X, END_Y;
 $(function () {
   $(".dropdown-menu a").click(function () {
     let item_selected = $(this).text();
@@ -22,10 +25,18 @@ $("#send_name").click(function () {
   );
   random_bit_array = create_random_bit_array();
   if (Current_Algorithm == "Breadth First") {
-    result = Breadth_First(random_bit_array);
+    result = Breadth_First(random_bit_array, START_X, START_Y, END_X, END_Y);
   } else if (Current_Algorithm === "Iterative Deepening")
-    result = Iterative_Deepening(random_bit_array);
-  else if (Current_Algorithm === "A Star") result = A_Star(random_bit_array);
+    result = Iterative_Deepening(
+      random_bit_array,
+      START_X,
+      START_Y,
+      END_X,
+      END_Y
+    );
+  else if (Current_Algorithm === "A Star")
+    result = A_Star(random_bit_array, START_X, START_Y, END_X, END_Y);
+  // console.log(result);
   do_coloring(result.array);
   show_answer(result);
 });
@@ -47,8 +58,7 @@ for (let i = ROW_NUMBER - 1; i >= 0; i--) {
     table_td.id = `x${j}y${i}`;
   }
 }
-let RAND_1 = 20;
-let RAND_2 = 20;
+
 function Random(n) {
   return Math.floor(Math.random() * 1000) % n;
 }
@@ -74,6 +84,8 @@ function create_random_bit_array() {
       start_y = Random(20);
     if (arr[start_x][start_y] != 1) {
       arr[start_x][start_y] = "S";
+      START_X = start_x;
+      START_Y = start_y;
       break;
     }
   }
@@ -82,6 +94,8 @@ function create_random_bit_array() {
       end_y = Random(20);
     if (arr[end_x][end_y] != 1 && arr[end_x][end_y] != "S") {
       arr[end_x][end_y] = "E";
+      END_X = end_x;
+      END_Y = end_y;
       break;
     }
   }
@@ -98,17 +112,20 @@ function do_coloring(random_bit_array) {
         .removeClass("start")
         .removeClass("end")
         .removeClass("road");
+      // console.log(i, j, random_bit_array);
       if (random_bit_array[j][i] === 1) $(`#x${j}y${i}`).addClass("blue");
-      else if (random_bit_array[j][i] === "S")
-        $(`#x${j}y${i}`).addClass("start");
-      else if (random_bit_array[j][i] === "E") $(`#x${j}y${i}`).addClass("end");
+      // else if (random_bit_array[j][i] === "S")
+      //   $(`#x${j}y${i}`).addClass("start");
+      // else if (random_bit_array[j][i] === "E") $(`#x${j}y${i}`).addClass("end");
       else if (random_bit_array[j][i] === "R")
         $(`#x${j}y${i}`).addClass("road");
     }
   }
+  $(`#x${START_X}y${START_Y}`).addClass("start").removeClass("road");
+  $(`#x${END_X}y${END_Y}`).addClass("end").removeClass("road");
 }
 function show_answer(result) {
-  $("#available").text(result.available);
+  $("#success").text(result.success);
   $("#search_cost").text(result.search_cost);
   $("#node_number").text(result.node_number);
 }
