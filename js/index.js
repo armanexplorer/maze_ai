@@ -36,7 +36,6 @@ $("#send_name").click(function () {
     );
   else if (Current_Algorithm === "A Star")
     result = A_Star(random_bit_array, START_X, START_Y, END_X, END_Y);
-  // console.log(result);
   do_coloring(result.array);
   show_answer(result);
 });
@@ -112,11 +111,7 @@ function do_coloring(random_bit_array) {
         .removeClass("start")
         .removeClass("end")
         .removeClass("road");
-      // console.log(i, j, random_bit_array);
       if (random_bit_array[j][i] === 1) $(`#x${j}y${i}`).addClass("blue");
-      // else if (random_bit_array[j][i] === "S")
-      //   $(`#x${j}y${i}`).addClass("start");
-      // else if (random_bit_array[j][i] === "E") $(`#x${j}y${i}`).addClass("end");
       else if (random_bit_array[j][i] === "R")
         $(`#x${j}y${i}`).addClass("road");
     }
