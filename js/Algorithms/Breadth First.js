@@ -21,6 +21,7 @@ function BFS_algo(arr) {
   let cur_path;
   let new_path;
   let search_cost = 0;
+  let extend_flag = false;
 
   frontier.push([get_id(START_X, START_Y)]);
   while (frontier.length != 0) {
@@ -39,15 +40,17 @@ function BFS_algo(arr) {
     }
     xy = get_xy(cur_id);
     adjs = get_adjs(xy[0], xy[1]);
+    extend_flag = false;
     for (let i = 0; i < adjs.length; i++) {
       xy = get_xy(adjs[i]);
       if (!visited.has(adjs[i]) && arr[xy[0]][xy[1]] !== 1) {
+        extend_flag = true;
         new_path = cur_path.slice();
         new_path.push(adjs[i]);
         frontier.push(new_path);
       }
     }
-    extend_count++;
+    if (extend_flag) extend_count++;
   }
   return {
     path: [],

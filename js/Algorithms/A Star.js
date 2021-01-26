@@ -25,6 +25,7 @@ function a_star_algo(arr) {
   let cur_depth;
   let extend_count = 0;
   let search_cost = 0;
+  let extend_flag = false;
 
   frontier.push([[get_id(START_X, START_Y)], h(START_X, START_Y)]);
 
@@ -44,16 +45,17 @@ function a_star_algo(arr) {
     }
     xy = get_xy(cur_id);
     adjs_cells = get_adjs(xy[0], xy[1]);
+    extend_flag = false;
     for (let i = 0; i < adjs_cells.length; i++) {
       xy = get_xy(adjs_cells[i]);
-
       if (!visited.has(adjs_cells[i]) && arr[xy[0]][xy[1]] !== 1) {
+        extend_flag = true;
         new_path = cur_path.slice();
         new_path.push(adjs_cells[i]);
         frontier.push([new_path, cur_depth + h(xy[0], xy[1])]);
       }
     }
-    extend_count++;
+    if (extend_flag) extend_count++;
   }
   return {
     path: [],

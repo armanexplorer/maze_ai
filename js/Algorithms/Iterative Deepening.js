@@ -61,7 +61,6 @@ function DLS_algo(arr, depth_limit) {
     if (cur_depth === depth_limit) {
       cutoff_flag = true;
       path.pop();
-      extend_count++;
       continue;
     }
     xy = get_xy(cur_id);
