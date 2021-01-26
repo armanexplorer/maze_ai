@@ -278,3 +278,7 @@ ol {
   background-repeat: no-repeat;
   background-position: center;
 }
+.button_container {
+  display: flex;
+  align-items: stretch;
+}
