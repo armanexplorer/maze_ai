@@ -1,5 +1,5 @@
 let RAND_1 = 50;
-let RAND_2 = 100;
+let RAND_2 = 70;
 let ROW_NUMBER = 20;
 let COL_NUMBER = 20;
 $().ready(function () {});
@@ -12,9 +12,6 @@ $(function () {
     $("#dropdownMenuButton").text(item_selected).val(item_selected);
   });
 });
-let random_bit_array = create_random_bit_array();
-console.log(random_bit_array);
-do_coloring(random_bit_array);
 let result;
 let q = [];
 $("#new_game").click(function () {
@@ -34,17 +31,21 @@ $("#show_result").click(function () {
   );
 
   if (Current_Algorithm == "Breadth First") {
-    result = Breadth_First(random_bit_array, START_X, START_Y, END_X, END_Y);
+    let new_arr=[];
+    for(let i=0;i<random_bit_array.length;i++)
+      new_arr[i]=random_bit_array[i].slice();
+    result = Breadth_First(new_arr, START_X, START_Y, END_X, END_Y);
+    console.log(random_bit_array);
   } else if (Current_Algorithm === "Iterative Deepening")
     result = Iterative_Deepening(
-      random_bit_array,
+      random_bit_array.slice(),
       START_X,
       START_Y,
       END_X,
       END_Y
     );
   else if (Current_Algorithm === "A Star")
-    result = A_Star(random_bit_array, START_X, START_Y, END_X, END_Y);
+    result = A_Star(random_bit_array.slice(), START_X, START_Y, END_X, END_Y);
   do_coloring(result.array);
   show_answer(result);
 });
@@ -64,6 +65,9 @@ for (let i = ROW_NUMBER - 1; i >= 0; i--) {
     table_td.id = `x${j}y${i}`;
   }
 }
+
+let random_bit_array = create_random_bit_array();
+do_coloring(random_bit_array);
 
 function Random(n) {
   return Math.floor(Math.random() * 1000) % n;
