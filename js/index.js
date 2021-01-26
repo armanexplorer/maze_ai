@@ -1,5 +1,7 @@
 let RAND_1 = 50;
 let RAND_2 = 100;
+let ROW_NUMBER = 20;
+let COL_NUMBER = 20;
 $().ready(function () {});
 let Current_Algorithm = "";
 let START_X, START_Y, END_X, END_Y;
@@ -10,9 +12,16 @@ $(function () {
     $("#dropdownMenuButton").text(item_selected).val(item_selected);
   });
 });
-let random_bit_array, result;
+let random_bit_array = create_random_bit_array();
+console.log(random_bit_array);
+do_coloring(random_bit_array);
+let result;
 let q = [];
-$("#send_name").click(function () {
+$("#new_game").click(function () {
+  random_bit_array = create_random_bit_array();
+  do_coloring(random_bit_array);
+});
+$("#show_result").click(function () {
   if (Current_Algorithm === "") {
     alert("Please select one of Algorithms!");
     return;
@@ -23,7 +32,7 @@ $("#send_name").click(function () {
     },
     "slow"
   );
-  random_bit_array = create_random_bit_array();
+
   if (Current_Algorithm == "Breadth First") {
     result = Breadth_First(random_bit_array, START_X, START_Y, END_X, END_Y);
   } else if (Current_Algorithm === "Iterative Deepening")
@@ -40,8 +49,6 @@ $("#send_name").click(function () {
   show_answer(result);
 });
 
-let ROW_NUMBER = 20;
-let COL_NUMBER = 20;
 let big_square = document.getElementById("my_square");
 let table_td, table_tr;
 for (let i = ROW_NUMBER - 1; i >= 0; i--) {
@@ -124,3 +131,5 @@ function show_answer(result) {
   $("#search_cost").text(result.search_cost);
   $("#node_number").text(result.node_number);
 }
+// function new_game() {}
+// function show_result(result) {}
