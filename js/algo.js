@@ -38,3 +38,11 @@ function sleep(ms) {
 function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+function get_xy_path(p) {
+  let res_xy = [];
+  p.forEach((element) => {
+    res_xy.push(get_xy(element));
+  });
+  return res_xy;
+}

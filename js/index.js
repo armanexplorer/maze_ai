@@ -1,5 +1,5 @@
-let RAND_1 = 20;
-let RAND_2 = 20;
+let RAND_1 = 50;
+let RAND_2 = 100;
 $().ready(function () {});
 let Current_Algorithm = "";
 let START_X, START_Y, END_X, END_Y;
