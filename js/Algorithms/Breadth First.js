@@ -20,10 +20,12 @@ function BFS_algo(arr) {
   let adjs;
   let cur_path;
   let new_path;
+  let search_cost = 0;
 
   frontier.push([get_id(START_X, START_Y)]);
   while (frontier.length != 0) {
     cur_path = frontier.shift();
+    search_cost++;
     cur_id = cur_path[cur_path.length - 1];
     if (visited.has(cur_id)) continue;
     visited.add(cur_id);
@@ -31,7 +33,7 @@ function BFS_algo(arr) {
       return {
         path: cur_path,
         node_number: extend_count,
-        search_cost: 0,
+        search_cost: search_cost,
         success: true,
       };
     }
@@ -50,7 +52,7 @@ function BFS_algo(arr) {
   return {
     path: [],
     node_number: extend_count,
-    search_cost: 0,
+    search_cost: search_cost,
     success: false,
   };
 }

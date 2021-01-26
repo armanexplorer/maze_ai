@@ -5,7 +5,6 @@ function Iterative_Deepening(array, sx, sy, ex, ey) {
   END_Y = ey;
   TARGET_ID = END_X * ROW_NUM + END_Y;
 
-  // let result = iterative_deeping_algo(array);
   let result = iterative_deeping_algo(array);
   let path = result.path;
   path.forEach((node_id) => {
@@ -22,7 +21,6 @@ function iterative_deeping_algo(arr) {
   while (true) {
     res = DLS_algo(arr, depth);
     if (res.cutoff === false) {
-      // alert(depth);
       return res;
     }
     depth++;
@@ -40,17 +38,14 @@ function DLS_algo(arr, depth_limit) {
   let adj_cell;
   let cur_depth;
   let cutoff_flag = false;
+  let search_cost = 0;
 
   path.push(get_id(START_X, START_Y));
-  console.log(START_X, START_Y);
-  console.log(END_X, END_Y);
   while (path.length != 0) {
-    // console.log(get_xy_path(path));
     cur_depth = path.length - 1;
     cur_id = path[cur_depth];
     if (visited[cur_id] < cur_depth) {
       path.pop();
-      extend_count++; // actually it doesn't extend but in theory it does
       continue;
     }
     visited[cur_id] = cur_depth;
@@ -58,7 +53,7 @@ function DLS_algo(arr, depth_limit) {
       return {
         path: path,
         node_number: extend_count,
-        search_cost: 0,
+        search_cost: search_cost,
         success: true,
         cutoff: false,
       };
@@ -77,11 +72,12 @@ function DLS_algo(arr, depth_limit) {
       continue;
     }
     path.push(adj_cell);
+    search_cost++;
   }
   return {
     path: [],
     node_number: extend_count,
-    search_cost: 0,
+    search_cost: search_cost,
     success: false,
     cutoff: cutoff_flag,
   };
@@ -97,9 +93,5 @@ function get_one_unvisited_adj(cur_xy, cur_depth, visited, arr) {
       return true;
     }
   });
-  // console.log(
-  //   `the adj selected for [${cur_xy[0]},${cur_xy[1]}] is: ${get_xy(child_id)}`
-  // );
-  // console.log("********************************************************");
   return child_id;
 }
