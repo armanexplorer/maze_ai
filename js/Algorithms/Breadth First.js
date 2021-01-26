@@ -13,7 +13,6 @@ function Breadth_First(array, START_X, START_Y, END_X, END_Y) {
 function BFS_algo(arr) {
   let frontier = [];
   let visited = new Set();
-  // let path = [];
   let extend_count = 0;
 
   let cur_id;
