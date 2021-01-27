@@ -261,19 +261,19 @@ ol {
   width: 250px !important;
 }
 .start {
-  background-image: url("/images/S2.png");
+  background-image: url("../images/S2.png");
   background-size: 80% 80%;
   background-repeat: no-repeat;
   background-position: center;
 }
 .end {
-  background-image: url("/images/E2.png");
+  background-image: url("../images/E2.png");
   background-size: 80% 80%;
   background-repeat: no-repeat;
   background-position: center;
 }
 .road {
-  background-image: url("/images/R.png");
+  background-image: url("../images/R.png");
   background-size: 80% 80%;
   background-repeat: no-repeat;
   background-position: center;
