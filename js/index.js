@@ -31,21 +31,22 @@ $("#show_result").click(function () {
   );
 
   if (Current_Algorithm == "Breadth First") {
-    let new_arr=[];
-    for(let i=0;i<random_bit_array.length;i++)
-      new_arr[i]=random_bit_array[i].slice();
+    let new_arr = [];
+    for (let i = 0; i < random_bit_array.length; i++)
+      new_arr[i] = random_bit_array[i].slice();
     result = Breadth_First(new_arr, START_X, START_Y, END_X, END_Y);
     console.log(random_bit_array);
-  } else if (Current_Algorithm === "Iterative Deepening")
-    result = Iterative_Deepening(
-      random_bit_array.slice(),
-      START_X,
-      START_Y,
-      END_X,
-      END_Y
-    );
-  else if (Current_Algorithm === "A Star")
-    result = A_Star(random_bit_array.slice(), START_X, START_Y, END_X, END_Y);
+  } else if (Current_Algorithm === "Iterative Deepening") {
+    let new_arr = [];
+    for (let i = 0; i < random_bit_array.length; i++)
+      new_arr[i] = random_bit_array[i].slice();
+    result = Iterative_Deepening(new_arr, START_X, START_Y, END_X, END_Y);
+  } else if (Current_Algorithm === "A Star") {
+    let new_arr = [];
+    for (let i = 0; i < random_bit_array.length; i++)
+      new_arr[i] = random_bit_array[i].slice();
+    result = A_Star(new_arr, START_X, START_Y, END_X, END_Y);
+  }
   do_coloring(result.array);
   show_answer(result);
 });
