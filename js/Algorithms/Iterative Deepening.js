@@ -4,6 +4,8 @@ function Iterative_Deepening(array, sx, sy, ex, ey) {
   END_X = ex;
   END_Y = ey;
   TARGET_ID = END_X * ROW_NUM + END_Y;
+  extend_count = 0;
+  search_cost = 0;
 
   let result = iterative_deeping_algo(array);
   let path = result.path;
@@ -31,14 +33,12 @@ function DLS_algo(arr, depth_limit) {
   let visited = new Array(MAX_ID + 1);
   visited.fill(999999);
   let path = [];
-  let extend_count = 0;
 
   let cur_id;
   let xy;
   let adj_cell;
   let cur_depth;
   let cutoff_flag = false;
-  let search_cost = 0;
 
   path.push(get_id(START_X, START_Y));
   while (path.length != 0) {
